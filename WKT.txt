@@ -1,0 +1,5 @@
+CIRCle(5 4, 3)
+CIRCLE(8 10, 51)
+circle(20 1, 2)
+circle(40 5, 105.7)
+circle(20 20, 100)

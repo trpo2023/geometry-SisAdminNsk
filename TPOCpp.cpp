@@ -5,7 +5,7 @@
 #include <string>
 #include <map>
 //#include <SFML/Graphics.hpp>
-#define M_PI 3.141592653589793238
+//#define M_PI 3.141592653589793238
 using namespace std;
 //using namespace sf;
 
@@ -296,7 +296,7 @@ void WriteCircleIntersections(vector <Circle>& allCircles)// возвращае�
 
 int main()
 {
-	string path = "WKT.txt";
+	string path = "nWKT.txt";
 	AnalyseData data;
 	map <string, vector<string>> parsedCircleData = data.TakeWktDataForCircle(path);
 	

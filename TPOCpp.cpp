@@ -89,8 +89,8 @@ public:
 		map <string, vector<string>> parsedData;// объявляем словарик 
 		vector <string> coordArray(parsedData.size());// объявляем массив координат для круга 
 
-		for (int i = 0; i < lowercaseData.size();i++)// приводим весь текст в нижний регистр и записываем его в новый массив строк 
-			for (int j = 0; j < lowercaseData[i].size(); j++)// идем по всей строке
+		for (size_t i = 0; i < lowercaseData.size();i++)// приводим весь текст в нижний регистр и записываем его в новый массив строк 
+			for (size_t j = 0; j < lowercaseData[i].size(); j++)// идем по всей строке
 				lowercaseData[i][j] = tolower(lowercaseData[i][j]); // приводим символы в нижний регистр 
 	
 		int expectedErrorLine = 0;
@@ -121,7 +121,7 @@ private:
 		string parsedString = ""; // сюда будем классать исключительно координаты и радиус круга
 
 		int countOfOpenBracets = 0, countOfCloseBracets = 0;
-		for (int i = 0; i < line.length(); i++)// находим кол-во открываюющихся и закрывающихся скобок в строке
+		for (size_t i = 0; i < line.length(); i++)// находим кол-во открываюющихся и закрывающихся скобок в строке
 		{
 			if (line[i] == '(')
 				countOfOpenBracets++;
@@ -152,8 +152,8 @@ private:
 			exit(EXIT_SUCCESS);
 		}
 			
-		int indexOfOpenBracket = 0, indexOfCloseBracket = 0;// запоминаем индекс открывающией и закрывающей скобки
-		for (int i = 0; i < line.length(); i++) 
+		size_t indexOfOpenBracket = 0, indexOfCloseBracket = 0;// запоминаем индекс открывающией и закрывающей скобки
+		for (size_t i = 0; i < line.length(); i++) 
 		{
 			if (line[i] == '(')
 				indexOfOpenBracket = i;
@@ -163,8 +163,8 @@ private:
 		}
 		// circle(x1 2, 3.0) Error at column 7: expected '<double>'
 		string forbiddenBracketsSymbols = "qwertyuiop[]asdfghjkl;'zxcvbnm/`-=QWERTYUIOPASDFGHJKLZXCVBNM";
-		for(int i=indexOfOpenBracket+1;i<indexOfCloseBracket-1;i++)// проверка правильности написания внутри скобок 
-			for (int j = 0; j < forbiddenBracketsSymbols.length(); j++)
+		for(size_t i=indexOfOpenBracket+1;i<indexOfCloseBracket-1;i++)// проверка правильности написания внутри скобок 
+			for (size_t j = 0; j < forbiddenBracketsSymbols.length(); j++)
 				if (line[i] == forbiddenBracketsSymbols[j]) 
 				{
 					cout << "Erorr at column " << i << ": expected '<double>'";
@@ -172,8 +172,8 @@ private:
 					exit(EXIT_SUCCESS);
 				}
 			
-		for (int i = 0; i < line.length(); i++) 
-			for (int j = 0; j < numbers.length(); j++) 
+		for (size_t i = 0; i < line.length(); i++) 
+			for (size_t j = 0; j < numbers.length(); j++) 
 				if (line[i] == numbers[j]) 
 				{
 					parsedString += line[i];
@@ -182,7 +182,7 @@ private:
 
 		string coordString = "";
 		int index = 0;
-		for (int i = 0; i < parsedString.length(); i++) 
+		for (size_t i = 0; i < parsedString.length(); i++) 
 		{
 			if (parsedString[i] != ' ' && parsedString[i] != ',')
 				coordString += parsedString[i];
@@ -277,9 +277,9 @@ float CalculateCenterDistance(float x2, float x1, float y2, float y1)
 void WriteCircleIntersections(vector <Circle>& allCircles)// возвращает список фигур, с которыми пересекается выбранный экземпляр
 {
 	int index = 0;
-	for (int i = 0; i < allCircles.size(); i++)
+	for (size_t i = 0; i < allCircles.size(); i++)
 	{
-		for (int j = 0; j < allCircles.size(); j++)
+		for (size_t j = 0; j < allCircles.size(); j++)
 		{
 			if (j != i) 
 			{

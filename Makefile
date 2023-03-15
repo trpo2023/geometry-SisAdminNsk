@@ -1,2 +1,2 @@
 main: TPOCpp.cpp
-	g++ -o main TPOCpp.cpp
+	g++ -Wall -Werror -o main TPOCpp.cpp

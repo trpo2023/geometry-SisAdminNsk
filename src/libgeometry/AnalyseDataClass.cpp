@@ -1,4 +1,4 @@
-#include "AnalyseDataClass.h"
+#include <libgeometry/AnalyseDataClass.h>
 
 std::map<std::string, std::vector<std::string>> AnalyseDataClass::TakeWktDataForCircle(std::string path)
 {
@@ -10,8 +10,8 @@ std::map<std::string, std::vector<std::string>> AnalyseDataClass::TakeWktDataFor
 	std::map <std::string, std::vector<std::string>> parsedData;// объявляем словарик 
 	std::vector <std::string> coordArray(parsedData.size());// объявляем массив координат для круга 
 
-	for (int i = 0; i < lowercaseData.size(); i++)// приводим весь текст в нижний регистр и записываем его в новый массив строк 
-		for (int j = 0; j < lowercaseData[i].size(); j++)// идем по всей строке
+	for (unsigned int i = 0; i < lowercaseData.size(); i++)// приводим весь текст в нижний регистр и записываем его в новый массив строк 
+		for (unsigned int j = 0; j < lowercaseData[i].size(); j++)// идем по всей строке
 			lowercaseData[i][j] = tolower(lowercaseData[i][j]); // приводим символы в нижний регистр 
 
 	int expectedErrorLine = 0;
@@ -40,7 +40,7 @@ std::vector<std::string> AnalyseDataClass::ParseString(std::string line)
 	std::string parsedString = ""; // сюда будем классать исключительно координаты и радиус круга
 
 	int countOfOpenBracets = 0, countOfCloseBracets = 0;
-	for (int i = 0; i < line.length(); i++)// находим кол-во открываюющихся и закрывающихся скобок в строке
+	for (unsigned int i = 0; i < line.length(); i++)// находим кол-во открываюющихся и закрывающихся скобок в строке
 	{
 		if (line[i] == '(')
 			countOfOpenBracets++;
@@ -71,8 +71,8 @@ std::vector<std::string> AnalyseDataClass::ParseString(std::string line)
 		exit(EXIT_SUCCESS);
 	}
 
-	int indexOfOpenBracket = 0, indexOfCloseBracket = 0;// запоминаем индекс открывающией и закрывающей скобки
-	for (int i = 0; i < line.length(); i++)
+	unsigned int indexOfOpenBracket = 0, indexOfCloseBracket = 0;// запоминаем индекс открывающией и закрывающей скобки
+	for (unsigned int i = 0; i < line.length(); i++)
 	{
 		if (line[i] == '(')
 			indexOfOpenBracket = i;
@@ -82,8 +82,8 @@ std::vector<std::string> AnalyseDataClass::ParseString(std::string line)
 	}
 	// circle(x1 2, 3.0) Error at column 7: expected '<double>'
 	std::string forbiddenBracketsSymbols = "qwertyuiop[]asdfghjkl;'zxcvbnm/`-=QWERTYUIOPASDFGHJKLZXCVBNM";
-	for (int i = indexOfOpenBracket + 1; i < indexOfCloseBracket - 1; i++)// проверка правильности написания внутри скобок 
-		for (int j = 0; j < forbiddenBracketsSymbols.length(); j++)
+	for (unsigned int i = indexOfOpenBracket + 1; i < indexOfCloseBracket - 1; i++)// проверка правильности написания внутри скобок 
+		for (unsigned int j = 0; j < forbiddenBracketsSymbols.length(); j++)
 			if (line[i] == forbiddenBracketsSymbols[j])
 			{
 				std::cout << "Erorr at column " << i << ": expected '<double>'";
@@ -91,9 +91,9 @@ std::vector<std::string> AnalyseDataClass::ParseString(std::string line)
 				exit(EXIT_SUCCESS);
 			}
 
-	for (int i = 0; i < line.length(); i++) 
+	for (unsigned int i = 0; i < line.length(); i++) 
 	{
-		for (int j = 0; j < numbers.length(); j++)
+		for (unsigned int j = 0; j < numbers.length(); j++)
 		{
 			if (line[i] == numbers[j])
 			{
@@ -105,7 +105,7 @@ std::vector<std::string> AnalyseDataClass::ParseString(std::string line)
 		
 	std::string coordString = "";
 	int index = 0;
-	for (int i = 0; i < parsedString.length(); i++)
+	for (unsigned int i = 0; i < parsedString.length(); i++)
 	{
 		if (parsedString[i] != ' ' && parsedString[i] != ',')
 			coordString += parsedString[i];

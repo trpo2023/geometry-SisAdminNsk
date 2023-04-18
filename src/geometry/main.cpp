@@ -1,11 +1,11 @@
-#include "func.h"
-#include "CircleClass.h"
-#include "AnalyseDataClass.h"
-#include "ReadFromFileClass.h"
-
+#include <libgeometry/func.h>
+#include <libgeometry/CircleClass.h>
+#include <libgeometry/AnalyseDataClass.h>
+#include <libgeometry/ReadFromFileClass.h>
+#include <string> 
 int main() 
 {
-	std::string path = "WKT.txt";
+	std::string path = "WKT";
 	AnalyseDataClass data;
 	std::map <std::string, std::vector<std::string>> parsedCircleData = data.TakeWktDataForCircle(path);
 

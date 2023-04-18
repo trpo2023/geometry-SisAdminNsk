@@ -1,5 +1,4 @@
-#pragma once
-#include "func.h"
+#include <libgeometry/func.h>
 
 float CalculateCenterDistance(float x2, float x1, float y2, float y1) 
 {
@@ -9,9 +8,9 @@ float CalculateCenterDistance(float x2, float x1, float y2, float y1)
 void WriteCircleIntersections(std::vector <CircleClass>& allCircles) 
 {
 	int index = 0;
-	for (int i = 0; i < allCircles.size(); i++)
+	for (unsigned int i = 0; i < allCircles.size(); i++)
 	{
-		for (int j = 0; j < allCircles.size(); j++)
+		for (unsigned int j = 0; j < allCircles.size(); j++)
 		{
 			if (j != i)
 			{

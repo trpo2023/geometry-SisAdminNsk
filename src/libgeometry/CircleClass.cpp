@@ -1,4 +1,4 @@
-#include "CircleClass.h"
+#include <libgeometry/CircleClass.h>
 
 float CircleClass::GetXcoord() { return xCoord; }
 float CircleClass::GetYcoord() { return yCoord; }

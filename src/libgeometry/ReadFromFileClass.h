@@ -7,6 +7,6 @@
 class ReadFromFileClass
 {
 protected:
-	std::vector <std::string> dataFromFile(std::string path);
+	std::vector <std::string> dataFromFile(std::string& path);
 };
 

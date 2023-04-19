@@ -5,7 +5,7 @@
 #include <string> 
 int main() 
 {
-	std::string path = "data/WKT";
+	std::string path = "WKT";
 	AnalyseDataClass data;
 	std::map <std::string, std::vector<std::string>> parsedCircleData = data.TakeWktDataForCircle(path);
 

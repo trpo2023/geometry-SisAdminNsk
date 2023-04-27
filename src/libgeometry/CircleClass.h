@@ -21,7 +21,7 @@ public:
 	std::string name = "";
 	std::string intersections[10];
 
-	double CalculatePerimeter(float r);
-	double CalculateArea(float r);
+	float CalculatePerimeter(float r);
+	float CalculateArea(float r);
 };
 

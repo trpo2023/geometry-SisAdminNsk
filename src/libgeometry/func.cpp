@@ -9,6 +9,22 @@ float CalculatePerimeter(float r) { return  2 * r * M_PI; }
 
 float CalculateArea(float r) { return r * r * M_PI; }
 
+bool CheckOpenBracket(std::string& line)
+{
+	if (line[6] != '(')
+		return false;
+
+	return true;
+}
+
+bool CheckCloseBracket(std::string& line)
+{
+	if (line[line.length() - 1] != ')')
+		return false;
+	
+	return true;
+}
+
 void WriteCircleIntersections(std::vector <CircleClass>& allCircles) 
 {
 	int index = 0;

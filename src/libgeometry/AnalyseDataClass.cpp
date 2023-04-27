@@ -1,4 +1,5 @@
 #include <AnalyseDataClass.h>
+#include <func.h>
 
 std::map<std::string, std::vector<std::string>> AnalyseDataClass::TakeWktDataForCircle(std::string path)
 {
@@ -57,14 +58,14 @@ std::vector<std::string> AnalyseDataClass::ParseString(std::string line)
 	}
 
 	// circle(1 2, 3.1( Error at column 15: expected ')
-	if (line[6] != '(')
+	if(!CheckOpenBracket(line))
 	{
 		std::cout << "Error at column 6: expected '('";
 		std::cout << "\nClosing the process...";
 		exit(EXIT_SUCCESS);
 	}
 
-	if (line[line.length() - 1] != ')')
+	if(!CheckCloseBracket(line))// checking close bracket
 	{
 		std::cout << "Error at column " << (line.length() - 1) << ": expected '('";
 		std::cout << "\nClosing the process...";

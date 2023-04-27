@@ -61,7 +61,7 @@ CTEST(PARSING_TEST_suite,isHavingOpenBracketTrue)// open bracket
     ASSERT_EQUAL(expected,result);
 }
 
-CTEST(PARSING_TEST_suite,isHavingCloseBracketFalse)// close bracket
+CTEST(PARSING_TEST_suite,isHavingOpenBracketFalse)// no open bracket
 {
     // Data
     std::string line = "circle)1 2, 3.1)";
@@ -69,6 +69,54 @@ CTEST(PARSING_TEST_suite,isHavingCloseBracketFalse)// close bracket
     const bool result = CheckOpenBracket(line);
     // Then
     const bool expected = false;
+
+    ASSERT_EQUAL(expected,result);
+}
+
+CTEST(PARSING_TEST_suite,isHavingCloseBracketTrue)// close bracket
+{
+    // Data
+    std::string line = "circle(1 2, 3.1)";
+    // When
+    const bool result = CheckCloseBracket(line);
+    // Then
+    const bool expected = true;
+
+    ASSERT_EQUAL(expected,result);
+}
+
+CTEST(PARSING_TEST_suite,isHavingCloseBracketFalse)// no close bracket
+{
+    // Data
+    std::string line = "circle(1 2, 3.1(";
+    // When
+    const bool result = CheckCloseBracket(line);
+    // Then
+    const bool expected = false;
+
+    ASSERT_EQUAL(expected,result);
+}
+
+CTEST(PARSING_TEST_suite,isHavingRubbishIntoBracketsTrue)// YES rubbish
+{
+    // Data
+    std::string line = "circle(x1 2, 3.0)";
+    // When
+    const bool result = CheckRubbishInBrackets(line);
+    // Then
+    const bool expected = false;
+
+    ASSERT_EQUAL(expected,result);
+}
+
+CTEST(PARSING_TEST_suite,isHavingRubbishIntoBracketsFalse)// NO rubbish
+{
+    // Data
+    std::string line = "circle(8 65, 10)";
+    // When
+    const bool result = CheckRubbishInBrackets(line);
+    // Then
+    const bool expected = true;
 
     ASSERT_EQUAL(expected,result);
 }

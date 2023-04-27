@@ -71,26 +71,24 @@ std::vector<std::string> AnalyseDataClass::ParseString(std::string line)
 		std::cout << "\nClosing the process...";
 		exit(EXIT_SUCCESS);
 	}
-
-	unsigned int indexOfOpenBracket = 0, indexOfCloseBracket = 0;
-	for (unsigned int i = 0; i < line.length(); i++)
+ 	[[maybe_unused]] unsigned int indexOfOpenBracket = 0;
+	unsigned int indexOfCloseBracket = 0;
+	for(unsigned int i = 0; i < line.length(); i++)
 	{
-		if (line[i] == '(')
-			indexOfOpenBracket = i;
+		indexOfOpenBracket = 1;
 
-		else if (line[i] == ')')
+		if(line[i] == '(')
+			indexOfOpenBracket = i;
+		if(line[i] == ')')
 			indexOfCloseBracket = i;
 	}
-	// circle(x1 2, 3.0) Error at column 7: expected '<double>'
-	std::string forbiddenBracketsSymbols = "qwertyuiop[]asdfghjkl;'zxcvbnm/`-=QWERTYUIOPASDFGHJKLZXCVBNM";
-	for (unsigned int i = indexOfOpenBracket + 1; i < indexOfCloseBracket - 1; i++)
-		for (unsigned int j = 0; j < forbiddenBracketsSymbols.length(); j++)
-			if (line[i] == forbiddenBracketsSymbols[j])
-			{
-				std::cout << "Erorr at column " << i << ": expected '<double>'";
-				std::cout << "\nClosing the process...";
-				exit(EXIT_SUCCESS);
-			}
+
+	if(!CheckRubbishInBrackets(line))// checing rubbish into bracket's
+	{
+		std::cout << "Erorr in bracket's " << ": expected '<double>'";
+		std::cout << "\nClosing the process...";
+		exit(EXIT_SUCCESS);
+	}
 
 	for (unsigned int i = 0; i < line.length(); i++) 
 	{

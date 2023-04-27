@@ -25,6 +25,31 @@ bool CheckCloseBracket(std::string& line)
 	return true;
 }
 
+bool CheckRubbishInBrackets(std::string& line)// circle(x1 2, 3.0) Error at column 7: expected '<double>'
+{
+	unsigned int indexOfOpenBracket = 0, indexOfCloseBracket = 0;
+	for (unsigned int i = 0; i < line.length(); i++)
+	{
+		if (line[i] == '(')
+			indexOfOpenBracket = i;
+
+		else if (line[i] == ')')
+			indexOfCloseBracket = i;
+	}
+	std::string forbiddenBracketsSymbols = "qwertyuiop[]asdfghjkl;'zxcvbnm/`-=QWERTYUIOPASDFGHJKLZXCVBNM";
+	for (unsigned int i = indexOfOpenBracket + 1; i < indexOfCloseBracket - 1; i++)
+		for (unsigned int j = 0; j < forbiddenBracketsSymbols.length(); j++)
+			if (line[i] == forbiddenBracketsSymbols[j])
+				return false;
+
+	return true;
+}
+
+// bool CheckRubbishOutOfBrackets(std::string& line)
+// {
+// 	// do it 
+// }
+
 void WriteCircleIntersections(std::vector <CircleClass>& allCircles) 
 {
 	int index = 0;

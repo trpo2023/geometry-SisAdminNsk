@@ -1,7 +1,7 @@
 #include <ctest.h>
 #include <func.h>// for math logic group of  tests
 
-CTEST(MATH_LOGIC_TEST_suite, IsCalculatingDistanceTrue)
+CTEST(MATH_LOGIC_TEST_suite, IsCalculatingDistanceTrue)// Calculate distance
 {
     // When
     const float result_1 = round(CalculateCenterDistance(10.5, 15, 15, 10)*10000)/10000;
@@ -17,7 +17,7 @@ CTEST(MATH_LOGIC_TEST_suite, IsCalculatingDistanceTrue)
     ASSERT_DBL_NEAR(expected_3, result_3);
 }
 
-CTEST(MATH_LOGIC_TEST_suite,IsCalculatingPerimeterTrue)
+CTEST(MATH_LOGIC_TEST_suite,IsCalculatingPerimeterTrue)// Calculate Perimeter
 {   
     // When
     const float result_1 = round(CalculatePerimeter(10)*10000)/10000;
@@ -33,7 +33,18 @@ CTEST(MATH_LOGIC_TEST_suite,IsCalculatingPerimeterTrue)
     ASSERT_DBL_NEAR(expected_3, result_3);
 }
 
-//CTEST(MATH_LOGIC_TEST_suite,IsCalculatingAreaTrue)
-//{
+CTEST(MATH_LOGIC_TEST_suite,IsCalculatingAreaTrue)// Calculate Area
+{
+    // When
+    const float result_1 = round(CalculateArea(10)*10000)/10000;
+    const float result_2 = round(CalculateArea(15)*10000)/10000;
+    const float result_3 = round(CalculateArea(0)*10000)/10000; 
+    // Then
+    const float expected_1 = 314.1593;
+    const float expected_2 = 706.8584;
+    const float expected_3 = 0.f;  
 
-//}
+    ASSERT_DBL_NEAR(expected_1, result_1);
+    ASSERT_DBL_NEAR(expected_2, result_2);
+    ASSERT_DBL_NEAR(expected_3, result_3);
+}

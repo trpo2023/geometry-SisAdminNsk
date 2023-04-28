@@ -1,13 +1,13 @@
-#include <func.h>
+#include "func.h"
 
 float CalculateCenterDistance(float x2, float x1, float y2, float y1) 
 {
 	return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 }
 
-float CalculatePerimeter(float r) { return  2 * r * M_PI; }
+float CalculatePerimeter_test(float r) { return  2 * r * M_PI; }
 
-float CalculateArea(float r) { return r * r * M_PI; }
+float CalculateArea_test(float r) { return r * r * M_PI; }
 
 bool CheckBracketsCount(std::string& line)
 {

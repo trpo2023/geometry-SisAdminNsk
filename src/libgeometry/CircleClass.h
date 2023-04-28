@@ -1,6 +1,5 @@
 #pragma once
 #include <string>
-const int M_PI = 3.141592653589793238;
 
 class CircleClass
 {

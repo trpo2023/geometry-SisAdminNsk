@@ -1,5 +1,5 @@
 #include <ctest.h>
-#include <func.h>// for math logic group of  tests
+#include "libgeometry/func.h" for math logic group of  tests
 
 CTEST(MATH_LOGIC_TEST_suite, IsCalculatingDistanceTrue)// Calculate distance
 {
@@ -20,9 +20,9 @@ CTEST(MATH_LOGIC_TEST_suite, IsCalculatingDistanceTrue)// Calculate distance
 CTEST(MATH_LOGIC_TEST_suite,IsCalculatingPerimeterTrue)// Calculate Perimeter
 {   
     // When
-    const float result_1 = round(CalculatePerimeter(10)*10000)/10000;
-    const float result_2 = round(CalculatePerimeter(15)*10000)/10000;
-    const float result_3 = round(CalculatePerimeter(0)*10000)/10000;
+    const float result_1 = round(CalculatePerimeter_test(10)*10000)/10000;
+    const float result_2 = round(CalculatePerimeter_test(15)*10000)/10000;
+    const float result_3 = round(CalculatePerimeter_test(0)*10000)/10000;
     // Then
     const float expected_1 = 62.8319f;
     const float expected_2 = 94.2478f;
@@ -36,9 +36,9 @@ CTEST(MATH_LOGIC_TEST_suite,IsCalculatingPerimeterTrue)// Calculate Perimeter
 CTEST(MATH_LOGIC_TEST_suite,IsCalculatingAreaTrue)// Calculate Area
 {
     // When
-    const float result_1 = round(CalculateArea(10)*10000)/10000;
-    const float result_2 = round(CalculateArea(15)*10000)/10000;
-    const float result_3 = round(CalculateArea(0)*10000)/10000; 
+    const float result_1 = round(CalculateArea_test(10)*10000)/10000;
+    const float result_2 = round(CalculateArea_test(15)*10000)/10000;
+    const float result_3 = round(CalculateArea_test(0)*10000)/10000; 
     // Then
     const float expected_1 = 314.1593;
     const float expected_2 = 706.8584;

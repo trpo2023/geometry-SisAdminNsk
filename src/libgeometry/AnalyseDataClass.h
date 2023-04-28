@@ -1,6 +1,7 @@
 #pragma once
 #include <map>
 #include "ReadFromFileClass.h"
+#include "func.h"
 class AnalyseDataClass : public ReadFromFileClass
 {
 public:

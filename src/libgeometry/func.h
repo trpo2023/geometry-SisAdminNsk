@@ -5,8 +5,8 @@
 
 // math group of func's
 float CalculateCenterDistance(float x2, float x1, float y2, float y1);
-float CalculatePerimeter(float r);
-float CalculateArea(float r);
+float CalculatePerimeter_test(float r);
+float CalculateArea_test(float r);
 void WriteCircleIntersections(std::vector <CircleClass>& allCircles);
 // parsing group of func's
 bool CheckBracketsCount(std::string& line);

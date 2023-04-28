@@ -40,17 +40,7 @@ std::vector<std::string> AnalyseDataClass::ParseString(std::string line)
 	std::string numbers = "0123456789. ";
 	std::string parsedString = "";
 
-	int countOfOpenBracets = 0, countOfCloseBracets = 0;
-	for (unsigned int i = 0; i < line.length(); i++)
-	{
-		if (line[i] == '(')
-			countOfOpenBracets++;
-
-		else if (line[i] == ')')
-			countOfCloseBracets++;
-	}
-
-	if (countOfOpenBracets > 1 || countOfCloseBracets > 1)
+	if(!CheckBracketsCount(line))// circle(1 2, 3.1))) - error! / circle(((1 2, 3.1) - error!
 	{
 		std::cout << "Bracket's format error! Check the spelling of bracket's in the file.";
 		std::cout << "\nClosing the process...";
@@ -119,12 +109,13 @@ std::vector<std::string> AnalyseDataClass::ParseString(std::string line)
 		if (i == parsedString.length() - 1)
 			coordArray[index] = coordString;
 	}
-	//circle(1.0 2.1, 3) 123 Error at column 19: unexpected token
-	if (indexOfCloseBracket != line.length() - 1)//unexpected token
+
+	if(!CheckRubbishOutOfBrackets(line))//circle(1.0 2.1, 3) 123 Error at column 19: unexpected token
 	{
 		std::cout << "Error at column " << indexOfCloseBracket + 1 << ": unexpected token";
 		std::cout << "\nClosing the process...";
-		exit(EXIT_SUCCESS);
+		exit(EXIT_SUCCESS);	
 	}
+
 	return coordArray;//index[0] - xCoord, index[1] - yCoord, index[2] - radious
 }

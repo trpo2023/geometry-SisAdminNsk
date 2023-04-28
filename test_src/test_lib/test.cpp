@@ -120,3 +120,55 @@ CTEST(PARSING_TEST_suite,isHavingRubbishIntoBracketsFalse)// NO rubbish
 
     ASSERT_EQUAL(expected,result);
 }
+
+CTEST(PARSING_TEST_suite,isHavingRubbishOutBracketsTrue)// have rubbish out bracket's
+{
+    // Data
+    std::string line = "circle(1.0 2.1, 3) 123";
+    // When
+    const bool result = CheckRubbishOutOfBrackets(line);
+    // Then
+    const bool expected = false;
+
+    ASSERT_EQUAL(expected,result);
+}
+
+CTEST(PARSING_TEST_suite,isHavingRubbishOutBracketsFalse)// have't rubbish out bracket's
+{
+    // Data
+    std::string line = "cricle(10.75 14, 15.8)";
+    // When
+    const bool result = CheckRubbishOutOfBrackets(line);
+    // Then
+    const bool expected = true;
+
+    ASSERT_EQUAL(expected,result);   
+}
+
+CTEST(PARSING_TEST_suite,isBracketsCountExceededTrue)
+{
+    // Data
+    std::string line_1 = "circle((10.75 14, 16)";
+    std::string line_2 = "circle(10.75 14, 16)))";
+    // When
+    const bool result_1 = CheckBracketsCount(line_1);
+    const bool result_2 = CheckBracketsCount(line_2);
+    // Then
+    const bool expected_1 = false;
+    const bool expected_2 = false;
+
+    ASSERT_EQUAL(expected_1,result_1);  
+    ASSERT_EQUAL(expected_2,result_2);  
+}
+
+CTEST(PARSING_TEST_suite,isBracketsCountExceededFalse)
+{
+    // Data
+    std::string line = "circle(10.75 14, 16)";
+    // When
+    const bool result = CheckBracketsCount(line);
+    // Then
+    const bool expected = true;
+
+    ASSERT_EQUAL(expected,result);  
+}

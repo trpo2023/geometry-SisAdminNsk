@@ -9,6 +9,7 @@ float CalculatePerimeter(float r);
 float CalculateArea(float r);
 void WriteCircleIntersections(std::vector <CircleClass>& allCircles);
 // parsing group of func's
+bool CheckBracketsCount(std::string& line);
 bool CheckOpenBracket(std::string& line);
 bool CheckCloseBracket(std::string& line);
 bool CheckRubbishInBrackets(std::string& line);

@@ -1,7 +1,7 @@
-#include <func.h>
-#include <CircleClass.h>
-#include <AnalyseDataClass.h>
-#include <ReadFromFileClass.h>
+#include "func.h"
+#include "CircleClass.h"
+#include "AnalyseDataClass.h"
+#include "ReadFromFileClass.h"
 #include <string> 
 int main() 
 {

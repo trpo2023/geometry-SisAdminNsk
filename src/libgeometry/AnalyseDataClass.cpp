@@ -23,7 +23,6 @@ std::map<std::string, std::vector<std::string>> AnalyseDataClass::TakeWktDataFor
 			parsedData[line.substr(0, circleWordLenght) + '_' + std::to_string(circleIndex)] = ParseString(line);
 			circleIndex++;
 		}
-
 		else
 			std::cout << "Error at column 0" << " at line " << expectedErrorLine << ": expected 'circle'.\n"
 			<< "This cricle does not go at total list...";

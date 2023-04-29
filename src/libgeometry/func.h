@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "CircleClass.h"
+#include <CircleClass.h>
 #include <math.h> 
 
 // math group of func's

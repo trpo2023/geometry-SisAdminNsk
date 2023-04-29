@@ -1,4 +1,4 @@
-#include "AnalyseDataClass.h"
+#include <AnalyseDataClass.h>
 
 std::map<std::string, std::vector<std::string>> AnalyseDataClass::TakeWktDataForCircle(std::string path)
 {

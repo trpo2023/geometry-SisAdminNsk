@@ -1,9 +1,5 @@
 #include <ctest.h>
-<<<<<<< HEAD
-#include "../libgeometry/func.h"//for math logic group of  tests
-=======
 #include <func.h> //for math logic group of  tests
->>>>>>> develop
 
 CTEST(MATH_LOGIC_TEST_suite, IsCalculatingDistanceTrue)// Calculate distance
 {

@@ -1,4 +1,4 @@
-#include "func.h"
+#include <func.h>
 
 float CalculateCenterDistance(float x2, float x1, float y2, float y1) 
 {

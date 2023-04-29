@@ -1,4 +1,4 @@
-#include "ReadFromFileClass.h"
+#include <ReadFromFileClass.h>
 
 std::vector<std::string> ReadFromFileClass::dataFromFile(std::string& path)
 {
